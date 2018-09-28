@@ -18,6 +18,9 @@
 │   ├── application.yml # 各种配置数据
 │   └── setup.rb        # 初始化程序
 ├── config.ru           # 启动脚本
+├── controllers         # 业务代码
+│   ├── application_controller.rb   
+│   └── example_controller.rb       # 业务模块    
 ├── Gemfile
 ├── Gemfile.lock
 ├── logs                # 日志文件夹 
@@ -28,6 +31,16 @@
 │   └── user.rb        # 模型文件夹（数据库表对应模型）
 └── README.md
 ```
+
+``` ruby
+# config.ru 
+
+# 配置业务模块访问前缀
+map('/example'){ run ExampleController }
+map('/'){ run ApplicationController }
+
+``` 
+
 
 ## 启动说明
 
@@ -42,6 +55,12 @@ $ bundle install
 
 $ puma -p 9293  -w 4 -e test -d
 
+
+
+# 测试请求
+$ curl -l -H "Content-type: application/json" -X POST -d '{"phone":"13521389587","password":"test"}' http://localhost:9293/example/add
+
 ```
+
 
 

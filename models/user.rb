@@ -1,3 +1,3 @@
-class User < Sequel::Model
+class User < Sequel::Model(DB[:users])
 
 end

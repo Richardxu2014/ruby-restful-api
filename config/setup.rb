@@ -1,8 +1,8 @@
 require 'bundler/setup'
 
 model_path = File.expand_path '../../models', __FILE__
-worker_path = File.expand_path '../../workers', __FILE__
-$LOAD_PATH.unshift(model_path,worker_path)
+controller_path = File.expand_path '../../controllers', __FILE__
+$LOAD_PATH.unshift(model_path,controller_path)
 
 ENVIRONMENT = ENV["RACK_ENV"] || 'development'
 p ENVIRONMENT
