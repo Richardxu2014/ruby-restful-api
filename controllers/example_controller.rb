@@ -4,13 +4,15 @@ require 'user'
 
 # 前缀  /example
 class ExampleController < ApplicationController
+    helpers ExampleHelper
+
     # 完整的 url 是  /example/all
     get '/all' do 
         p '------ get /example/all ----'
-        User[1].values.to_json
-        
+        # User[1].values.to_json
+        p getUser(1)  # helpe 中的方法
+
         { isSuccess: true, message: "操作成功"}.to_json
-        
     end
 
     # 完整的 url 是  /example/add
@@ -18,7 +20,7 @@ class ExampleController < ApplicationController
         p '======== post /example/add ==================='
         body = eval(request.body.read)
         p body
-         p body[:phone]
+        p body[:phone]
         {message: "add success"}.to_json
     end
 end
