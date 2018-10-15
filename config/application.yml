@@ -11,6 +11,13 @@ development:
     port: 6379
     auth_pass: ''
 
+  rubbitMQ:
+    host: '127.0.0.1' 
+    vhost: 'testhost' 
+    user: 'test' 
+    password: '123123' 
+    automatically_recover: false
+
 test:
   mysql:
     host: 'testhost'
@@ -24,6 +31,13 @@ test:
     port: 6379
     auth_pass: ''  
 
+  rubbitMQ:
+    host: '127.0.0.1' 
+    vhost: 'testhost' 
+    user: 'test' 
+    password: '123123' 
+    automatically_recover: false
+
 prodution:
   mysql:
     host: 'produtionhost'
@@ -36,3 +50,10 @@ prodution:
     host: '127.0.0.1'
     port: 6379
     auth_pass: ''  
+
+  rubbitMQ:
+    host: '127.0.0.1' 
+    vhost: 'testhost' 
+    user: 'test' 
+    password: '123123' 
+    automatically_recover: false

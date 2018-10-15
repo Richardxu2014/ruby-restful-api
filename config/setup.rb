@@ -36,6 +36,14 @@ $redis = Redis.new(
 	auth_pass: Settings.redis.auth_pass, 
 )
 
+$rabbit = Bunny.new(
+  host: Settings.rubbitMQ.host, 
+  vhost: Settings.rubbitMQ.vhost, 
+  user: Settings.rubbitMQ.user,  
+  password: Settings.rubbitMQ.password, 
+  automatically_recover: false
+)
+
 $logger = Logger.new('logs/service.log', 'daily') # 微服务日志
 $logger.level = Logger::DEBUG
 $logger.datetime_format = '%Y-%m-%d %H:%M:%S'
